@@ -41,4 +41,44 @@ public class StateCensusAnalyzerTest {
 			Assert.assertEquals("please check file path", e.getMessage());
 		}
 	}
+	@Test
+	public void givenCsvFile_whichIsWrongType_returnsFalse() {
+		try {
+			StateCensusAnalyzer stateCensusAnalyser = new StateCensusAnalyzer();
+			stateCensusAnalyser.loadCSV("/Users/kshamavidyananda/eclipse-workspace/CensusAnalyser/data/censusspreadsheet.txt");
+		} catch (IOException e) {
+			Assert.assertEquals("please check file path", e.getMessage());
+		} catch (CensusAnalyzerException e) {
+			Assert.assertEquals("please check file path", e.getMessage());
+		}
+	}
+	
+
+
+	@Test
+	public void givenCsvFile_withwrongdelimeter_returnsFalse() {
+		try {
+			StateCensusAnalyzer stateCensusAnalyser = new StateCensusAnalyzer();
+			stateCensusAnalyser.loadCSV("/Users/kshamavidyananda/eclipse-workspace/CensusAnalyser/data/censusspreadsheet.csv");
+			
+		} catch (IOException e) {
+			Assert.assertEquals("please check file path", e.getMessage());
+		} catch (CensusAnalyzerException e) {
+			Assert.assertEquals("please check file path", e.getMessage());
+		}
+}
+
+
+	@Test
+	public void givenCsvFile_withwrongdHeader_returnsFalse() {
+		try {
+			StateCensusAnalyzer stateCensusAnalyser = new StateCensusAnalyzer();
+			stateCensusAnalyser.loadCSV("/Users/kshamavidyananda/eclipse-workspace/CensusAnalyser/data/censusspreadsheet.csv");
+	
+		} catch (IOException e) {
+			Assert.assertEquals("please check file path", e.getMessage());
+		} catch (CensusAnalyzerException e) {
+			Assert.assertEquals("please check file path", e.getMessage());
+		}
+	}
 }
